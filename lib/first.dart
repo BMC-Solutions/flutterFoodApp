@@ -13,18 +13,10 @@ class _TabScreenState extends State<TabScreen> {
 
   @override
   void initState() {
-    card p1 = card(
-        const IconData!, 'assets/images/shoes_5.png',
-        'Nike Blazer Mid 77', '\$79,0');
-    card p2 = card(
-        const Icon(Icons.favorite_border), 'assets/images/shoes_1.png',
-        'Nike Blazer Mid 77', '\$79,0');
-    card p3 = card(
-        const Icon(Icons.favorite_border), 'assets/images/shoes_8.png',
-        'Nike Blazer Mid 77', '\$79,0');
-    card p4 = card(
-        const Icon(Icons.favorite_border), 'assets/images/shoes_2.png',
-        'Nike Blazer Mid 77', '\$79,0');
+    card p1 = card('assets/images/shoes_1.png', 'Nike Blazer Mid 77', '\$79,0');
+    card p2 = card('assets/images/shoes_1.png', 'Nike Blazer Mid 77', '\$79,0');
+    card p3 = card('assets/images/shoes_8.png', 'Nike Blazer Mid 77', '\$79,0');
+    card p4 = card('assets/images/shoes_2.png', 'Nike Blazer Mid 77', '\$79,0');
     super.initState();
     item = [p1, p2, p3, p4];
   }
@@ -58,8 +50,8 @@ class _TabScreenState extends State<TabScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                  CircleAvatar(
-                    child: Icon(item[index].icon),
+                  const CircleAvatar(
+                    child: Icon(Icons.favorite_border),
                   ),
                     Container(
                       child: Image.asset(item[index].imageUrl, height: 100),
