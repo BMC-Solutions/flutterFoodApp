@@ -1,9 +1,6 @@
-import 'package:e_commerce_app/model/products.dart';
+import 'package:e_commerce/model/products.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-
-import 'model/products.dart';
-import 'next_screen.dart';
 
 class TabScreen extends StatefulWidget {
   const TabScreen({Key? key}) : super(key: key);
@@ -15,6 +12,7 @@ class TabScreen extends StatefulWidget {
 class _TabScreenState extends State<TabScreen> {
   @override
   Widget build(BuildContext context) {
+    // var productList;
     return GridView.custom(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       physics: const NeverScrollableScrollPhysics(),
@@ -25,12 +23,12 @@ class _TabScreenState extends State<TabScreen> {
         crossAxisSpacing: 8,
         pattern: [
           const WovenGridTile(
-          1.6/2.4,
+            4.0 / 4.0,
             // crossAxisRatio: 0.9,
 
             alignment: AlignmentDirectional.bottomCenter,
           ),
-          WovenGridTile(2/3),
+          WovenGridTile(1),
         ],
       ),
       childrenDelegate: SliverChildBuilderDelegate(
@@ -38,10 +36,9 @@ class _TabScreenState extends State<TabScreen> {
             (context, index) =>
                 Container(
                   decoration: BoxDecoration(
-                    // color: Colors.blue[200],
+                    // color: Colors.blue,
                     // color: Color(0xffc0c4ce),
-                    color: Color(0xfffe882e),
-                    // color: Color(0xfff6f6f6),
+                    color: Color(0xfff6f6f6),
                    borderRadius: BorderRadius.circular(20)
                   ),
                 child: Column(
@@ -56,43 +53,18 @@ class _TabScreenState extends State<TabScreen> {
                       child: Icon(Icons.favorite_border,color: Colors.deepOrangeAccent,),
                     ),
                   ),
-                 Stack(
-                    children: [
-                      GestureDetector(
-                        onTap: (){
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const NextScreen()),
-                          );
-                        },
-                        child: Container(
-                          child: Image.asset(productList[index].imageUrl, height: 100),
-                        ),
-                      ),
-                    ],
-                  ),
+                    Container(
+                      child: Image.asset(productList[index].imageUrl, height: 100),
+                    ),
+                     Text(productList[index].productTitle,style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600),),
 
-                 Text(productList[index].productTitle,style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600),),
-                SizedBox(height: 10),
-                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                  Text(productList[index].productSubtitle,style:const TextStyle(fontSize: 24,fontWeight: FontWeight.bold,),),
-                  Wrap(
-                    children: const [
-                      CircleAvatar(
-                        radius: 12,
-                        backgroundColor: Colors.white,
-                      ),
-                      SizedBox(width: 3),
-                      CircleAvatar(
-                        radius: 12,
-                        backgroundColor: Colors.deepOrange,
-                      ),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: ListTile(
+                         title:Text(productList[index].productSubtitle,style:const TextStyle(fontSize: 24,fontWeight: FontWeight.bold,),),
+                         trailing: CircleAvatar(radius: 10,backgroundColor: Colors.deepOrangeAccent,),
+                       ),
                   )
-                  ],
-                 )
 
                   ],
                 )
