@@ -17,7 +17,8 @@ class _TabScreenState extends State<TabScreen> {
   Widget build(BuildContext context) {
     return GridView.custom(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      physics: const NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(
+      ),
       shrinkWrap: true,
       gridDelegate: SliverWovenGridDelegate.count(
         crossAxisCount: 2,
@@ -92,8 +93,7 @@ class _TabScreenState extends State<TabScreen> {
                     ],
                   )
                   ],
-                 )
-
+                  ),
                   ],
                 )
             ),
