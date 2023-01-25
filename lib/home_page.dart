@@ -1,7 +1,6 @@
 import 'package:e_commerce_app/botttomSheetScreen/bottomHome.dart';
 import 'package:e_commerce_app/first.dart';
 import 'package:flutter/material.dart';
-
 import 'botttomSheetScreen/bottomMain.dart';
 
 class StackOver extends StatefulWidget {
@@ -13,7 +12,7 @@ class _StackOverState extends State<StackOver>
      {
 
   int position=0;
-  List screens=[BottomMain(),BottomHome(),BottomHome(),BottomHome(),BottomHome()];
+  List screens=[BottomMain(),BottomHome(),BottomHome(),BottomHome()];
 
 
   @override
@@ -32,7 +31,7 @@ class _StackOverState extends State<StackOver>
                 position=0;
               });
             },
-            child: Icon(Icons.add_shopping_cart),
+            child: Icon(Icons.home),
             backgroundColor: Colors.deepOrange,
           ),
         ),
@@ -88,7 +87,6 @@ class _StackOverState extends State<StackOver>
       ),
     );
   }
-
 }
 
 

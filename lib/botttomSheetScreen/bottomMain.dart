@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../first.dart';
+import '../model/products.dart';
 
 class BottomMain extends StatefulWidget {
   const BottomMain({Key? key}) : super(key: key);
@@ -26,6 +27,7 @@ class _BottomMainState extends State<BottomMain> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
+    print(Product().getProductList().length);
     return NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return  [
@@ -217,11 +219,11 @@ class _BottomMainState extends State<BottomMain> with SingleTickerProviderStateM
         body:TabBarView(
           controller: _tabController,
           children: [
-            TabScreen(),
-            TabScreen(),
-            TabScreen(),
-            TabScreen(),
-            TabScreen(),
+            TabScreen(productList: Product().getProductList(),),
+            TabScreen(productList: Product().getProductList(),),
+            TabScreen(productList: Product().getProductList(),),
+            TabScreen(productList: Product().getProductList(),),
+            TabScreen(productList: Product().getProductList(),),
           ],
         )
     );

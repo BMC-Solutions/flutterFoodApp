@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_stack/flutter_image_stack.dart';
 
-
 class NextScreen extends StatefulWidget {
   const NextScreen({Key? key}) : super(key: key);
 
@@ -23,7 +22,7 @@ class _NextScreenState extends State<NextScreen>{
             Stack(
               children: [
                 ListTile(
-                  contentPadding: EdgeInsets.symmetric(horizontal: 15,vertical: 5),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10,vertical: 30),
                   leading: CircleAvatar(
                     radius: 20,
                     backgroundColor: Colors.white, // for Right
@@ -51,6 +50,9 @@ class _NextScreenState extends State<NextScreen>{
           ],
         ),
       ),
+
+
+
     );
   }
 }
@@ -142,7 +144,7 @@ circlear_Row(){
 main_Container(){
   return Expanded(
       child: Container(
-        height: double.infinity,
+        // height: double.infinity,
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30),),
           color: Colors.white,
@@ -175,7 +177,7 @@ main_Container(){
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    mainAxisSize: MainAxisSize.min,
+                    // mainAxisSize: MainAxisSize.min,
                     children: [
                     Container(
                       alignment: Alignment.center,

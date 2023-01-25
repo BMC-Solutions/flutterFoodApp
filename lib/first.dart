@@ -1,12 +1,13 @@
 import 'package:e_commerce_app/model/products.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-
-import 'model/products.dart';
 import 'next_screen.dart';
 
 class TabScreen extends StatefulWidget {
-  const TabScreen({Key? key}) : super(key: key);
+  List<Product> productsList = [];
+  TabScreen({Key? key,required List<Product> productList,}) : super(key: key){
+   productsList = productList;
+  }
 
   @override
   State<TabScreen> createState() => _TabScreenState();
@@ -35,7 +36,7 @@ class _TabScreenState extends State<TabScreen> {
         ],
       ),
       childrenDelegate: SliverChildBuilderDelegate(
-           childCount: productList.length,
+           childCount: widget.productsList.length,
             (context, index) =>
                 Container(
                   decoration: BoxDecoration(
@@ -67,18 +68,18 @@ class _TabScreenState extends State<TabScreen> {
                           );
                         },
                         child: Container(
-                          child: Image.asset(productList[index].imageUrl, height: 100),
+                          child: Image.asset(widget.productsList[index].imageUrl!,height: 100),
                         ),
                       ),
                     ],
                   ),
 
-                 Text(productList[index].productTitle,style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600),),
+                 Text(widget.productsList[index].productTitle!,style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600),),
                 SizedBox(height: 10),
                  Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                  Text(productList[index].productSubtitle,style:const TextStyle(fontSize: 24,fontWeight: FontWeight.bold,),),
+                  Text(widget.productsList[index].productSubtitle!,style:const TextStyle(fontSize: 24,fontWeight: FontWeight.bold,),),
                   Wrap(
                     children: const [
                       CircleAvatar(
