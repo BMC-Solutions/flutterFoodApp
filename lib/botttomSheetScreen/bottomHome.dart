@@ -10,6 +10,6 @@ class BottomHome extends StatefulWidget {
 class _BottomHomeState extends State<BottomHome> {
   @override
   Widget build(BuildContext context) {
-    return Text("Home");
+    return const Text("Home");
   }
 }

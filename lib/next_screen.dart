@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_stack/flutter_image_stack.dart';
+TextStyle text = const TextStyle(fontSize: 20,fontWeight: FontWeight.bold);
 
 class NextScreen extends StatefulWidget {
   const NextScreen({Key? key}) : super(key: key);
@@ -49,7 +50,7 @@ class _NextScreenState extends State<NextScreen>{
               ],
             ),
             SizedBox(height: 5),
-            circlear_Row(),
+            CircleRow(),
             SizedBox(height: 15),
             main_Container(),
             SizedBox(height: 10),
@@ -63,7 +64,7 @@ class _NextScreenState extends State<NextScreen>{
   }
 }
 
-circlear_Row(){
+CircleRow(){
   return SingleChildScrollView(
     scrollDirection: Axis.horizontal,
     child: Padding(
@@ -85,15 +86,15 @@ circlear_Row(){
               ),
               child: Image.asset('assets/images/shoes_8.png'),
             ),
-          SizedBox(width: 7),
-          getProductIcon('assets/images/shoes_2.png'),
-          SizedBox(width: 7),
-          getProductIcon('assets/images/shoes_1.png'),
-          SizedBox(width: 7),
-          getProductIcon('assets/images/shoes_4.png'),
+          const SizedBox(width: 7),
+          getProductShoes('assets/images/shoes_2.png'),
+          const SizedBox(width: 7),
+          getProductShoes('assets/images/shoes_1.png'),
+          const SizedBox(width: 7),
+          getProductShoes('assets/images/shoes_4.png'),
           // getProductIcon('assets/images/shoes_4.png'),
-          SizedBox(width: 7),
-          getProductIcon('assets/images/shoes_5.png'),
+          const SizedBox(width: 7),
+          getProductShoes('assets/images/shoes_5.png'),
         ],
       ),
     ),
@@ -152,80 +153,15 @@ main_Container(){
                       child: const Text('34',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                     ),
                     const SizedBox(width: 5),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 55,
-                      width: 55,
-                      decoration: BoxDecoration(
-                          color: Color(0xffffffff),
-                          border: Border.all(
-                            width: 2.0,
-                            color: Colors.grey,
-                          ),
-                          borderRadius: BorderRadius.circular(50)
-                      ),
-                      child: const Text('35',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                    ),
+                      getTextNumbers('35',),
                     const SizedBox(width: 5),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 55,
-                      width: 55,
-                      decoration: BoxDecoration(
-                          color: const Color(0xffffffff),
-                          border: Border.all(
-                            width: 2.0,
-                            color: Colors.grey,
-                          ),
-                          borderRadius: BorderRadius.circular(50)
-                      ),
-                      child: const Text('36',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                    ),
+                    getTextNumbers('36',),
                     const SizedBox(width: 5),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 55,
-                      width: 55,
-                      decoration: BoxDecoration(
-                          color: const Color(0xffffffff),
-                          border: Border.all(
-                            width: 2.0,
-                            color: Colors.grey,
-                          ),
-                          borderRadius: BorderRadius.circular(50)
-                      ),
-                      child: const Text('37',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                    ),
+                    getTextNumbers('37',),
                     const SizedBox(width: 5),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 55,
-                      width: 55,
-                      decoration: BoxDecoration(
-                          color: Color(0xffffffff),
-                          border: Border.all(
-                            width: 2.0,
-                            color: Colors.grey,
-                          ),
-                          borderRadius: BorderRadius.circular(50)
-                      ),
-                      child: const Text('38',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                    ),
+                    getTextNumbers('38',),
                     const SizedBox(width: 5),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 55,
-                      width: 55,
-                      decoration: BoxDecoration(
-                          color: const Color(0xffffffff),
-                          border: Border.all(
-                            width: 2.0,
-                            color: Colors.grey,
-                          ),
-                          borderRadius: BorderRadius.circular(50)
-                      ),
-                      child: const Text('39',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                     ),
+                    getTextNumbers('39',),
                    ],
                   ),
                 ),
@@ -263,7 +199,7 @@ main_Container(){
                 Row(
                   children: [
                     Wrap(
-                      children: [
+                      children: const [
                         Icon(Icons.star,color: Color(0xfffe882e),size: 20,),
                         Icon(Icons.star,color: Color(0xfffe882e),size: 20,),
                         Icon(Icons.star,color: Color(0xfffe882e),size: 20,),
@@ -275,7 +211,7 @@ main_Container(){
                  )
                 ],
               ),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               Container(
                 width: double.infinity,
                 height: 50,
@@ -283,7 +219,7 @@ main_Container(){
                   color: Color(0xfffe882e),
                   borderRadius: BorderRadius.circular(10)
                 ),
-                child: Center(
+                child: const Center(
                   child: Text('Add to cart',style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold)),
                 ),
               ),
@@ -295,20 +231,36 @@ main_Container(){
 }
 
 
-getProductIcon(String imagePath){
+getProductShoes(String imagePath){
 return Container(
   height: 50,
   width: 50,
   decoration: BoxDecoration(
      border: Border.all(
        width: 2.0,
-       color: Colors.grey,
+       color: Colors.white,
      ),
      borderRadius: BorderRadius.circular(100),
-     color:Color(0xfff9f9f9),
+     color:const Color(0xfff9f9f9),
    ),
    child: Image.asset(imagePath),
   );
+}
+getTextNumbers(String textNum){
+ return Container(
+    alignment: Alignment.center,
+    height: 55,
+    width: 55,
+    decoration: BoxDecoration(
+        color: const Color(0xffffffff),
+        border: Border.all(
+          width: 2.0,
+          color: Colors.grey,
+        ),
+        borderRadius: BorderRadius.circular(50)
+      ),
+    child: Text(textNum,style: text,),
+   );
 }
 
 
