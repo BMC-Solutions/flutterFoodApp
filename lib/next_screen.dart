@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_stack/flutter_image_stack.dart';
+
 TextStyle text = const TextStyle(fontSize: 20,fontWeight: FontWeight.bold);
 
 class NextScreen extends StatefulWidget {
@@ -8,58 +9,52 @@ class NextScreen extends StatefulWidget {
   @override
   State<NextScreen> createState() => _NextScreenState();
 }
-
 class _NextScreenState extends State<NextScreen>{
 
-  var itemImage = ['assets/images/shoes_8.png','assets/images/shoes_1.png',
-  'assets/images/shoes_8.png','assets/images/shoes_1.png','assets/images/shoes_3.png'
-   'assets/images/shoes_5.png','assets/images/shoes_4.png'
-  ];
- int image1 = 0;
+  // var itemImage = ['assets/images/shoes_8.png','assets/images/shoes_1.png',
+  // 'assets/images/shoes_8.png','assets/images/shoes_1.png','assets/images/shoes_3.png'
+  //  'assets/images/shoes_5.png','assets/images/shoes_4.png'
+  // ];
+ // int image1 = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:Color(0xfff6f6f6),
-      body: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          // mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Stack(
-              children: [
-                ListTile(
-                  contentPadding: EdgeInsets.symmetric(horizontal: 10,vertical: 30),
-                  leading: CircleAvatar(
+      backgroundColor:const Color(0xfff6f6f6),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Stack(
+            children: [
+              ListTile(
+                contentPadding: const EdgeInsets.symmetric(horizontal: 10,vertical: 30),
+                leading: CircleAvatar(
+                  radius: 20,
+                  backgroundColor: Colors.white, // for Right
+                  child: IconButton(onPressed: (){
+                    Navigator.of(context).pop();
+                  }, icon: const Icon(Icons.arrow_back_ios_new_rounded,color: Colors.black,size: 20)),
+                ),
+                trailing: const CircleAvatar(
                     radius: 20,
-                    backgroundColor: Colors.white, // for Right
-                    child: IconButton(onPressed: (){
-                      Navigator.of(context).pop();
-                    }, icon: const Icon(Icons.arrow_back_ios_new_rounded,color: Colors.black,size: 20)),
-                  ),
-                  trailing: const CircleAvatar(
-                      radius: 20,
-                      backgroundColor: Colors.white,
-                      child: Icon(Icons.favorite_border,color: Colors.black,size: 20,)), // for Left
-                ),
-                Align(
-                  alignment: Alignment.topCenter,
-                   child: Image.asset(itemImage[image1],
-                    fit: BoxFit.contain,height: 150.0,),
-                ),
-              ],
-            ),
-            SizedBox(height: 5),
-            CircleRow(),
-            SizedBox(height: 15),
-            main_Container(),
-            SizedBox(height: 10),
-          ],
-        ),
+                    backgroundColor: Colors.white,
+                    child: Icon(Icons.favorite_border,color: Colors.black,size: 20,)), // for Left
+              ),
+              Align(
+                alignment: Alignment.topCenter,
+                 child: Image.asset('assets/images/shoes_8.png',
+                  fit: BoxFit.contain,height: 150.0,),
+              ),
+            ],
+          ),
+          const SizedBox(height: 5),
+          CircleRow(),
+          const SizedBox(height: 15),
+          MainContainer(),
+          const SizedBox(height: 10),
+        ],
       ),
-
-
-
     );
   }
 }
@@ -82,7 +77,7 @@ CircleRow(){
                   color: Colors.grey,
                  ),
                 borderRadius: BorderRadius.circular(100),
-                color:Color(0xfff9f9f9),
+                color:const Color(0xfff9f9f9),
               ),
               child: Image.asset('assets/images/shoes_8.png'),
             ),
@@ -92,7 +87,6 @@ CircleRow(){
           getProductShoes('assets/images/shoes_1.png'),
           const SizedBox(width: 7),
           getProductShoes('assets/images/shoes_4.png'),
-          // getProductIcon('assets/images/shoes_4.png'),
           const SizedBox(width: 7),
           getProductShoes('assets/images/shoes_5.png'),
         ],
@@ -100,7 +94,7 @@ CircleRow(){
     ),
   );
 }
-main_Container(){
+MainContainer(){
   return Expanded(
       child: Container(
         // height: double.infinity,
@@ -109,7 +103,7 @@ main_Container(){
           color: Colors.white,
         ),
         child: Container(
-            margin: EdgeInsets.only(left: 15,right: 15,top: 10),
+            margin: const EdgeInsets.only(left: 15,right: 15,top: 10),
             // color: Colors.deepOrange,
             child:Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -128,11 +122,11 @@ main_Container(){
                     ),
                   ],
                 ),
-                const SizedBox(height: 5),
+                const SizedBox(height: 3),
                 const Align(
                     alignment: Alignment.topLeft,
-                    child: Text('\$79,0',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
-                SizedBox(height: 8),
+                    child: Text('\$79,0',style:  TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
+                const SizedBox(height: 3),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
@@ -140,46 +134,46 @@ main_Container(){
                     children: [
                     Container(
                       alignment: Alignment.center,
-                      height: 55,
-                      width: 55,
+                      height: 60,
+                      width: 60,
                       decoration: BoxDecoration(
                           color: const Color(0xfff6f6f6),
                           border: Border.all(
                             width: 2.0,
-                            color: Color(0xfffe882e),
+                            color: const Color(0xfffe882e),
                           ),
                           borderRadius: BorderRadius.circular(50)
                       ),
                       child: const Text('34',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                     ),
-                    const SizedBox(width: 5),
-                      getTextNumbers('35',),
-                    const SizedBox(width: 5),
+                    const SizedBox(width: 6),
+                    getTextNumbers('35',),
+                    const SizedBox(width: 6),
                     getTextNumbers('36',),
-                    const SizedBox(width: 5),
+                    const SizedBox(width: 6),
                     getTextNumbers('37',),
-                    const SizedBox(width: 5),
+                    const SizedBox(width: 6),
                     getTextNumbers('38',),
-                    const SizedBox(width: 5),
+                    const SizedBox(width: 6),
                     getTextNumbers('39',),
                    ],
                   ),
                 ),
-               const SizedBox(height: 15),
+               const SizedBox(height: 6),
                // Align(
                //   alignment: Alignment.topLeft,
-                 const Text(style: TextStyle(letterSpacing: 1, fontSize: 14, fontWeight: FontWeight.w700, color: Color(0xffdbdee5)),
-                     "It happend in 1977 . The Nike Blazer Mid '7 makes"
+               const Text(style: TextStyle(letterSpacing: 1, fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xffdbdee5)),
+                     "It happened in 1977 . The Nike Blazer Mid '7 makes"
                      "a legendary debut on the Court ..." ),
-                const SizedBox(height: 6),
+                const SizedBox(height: 3),
                 const Align(
                     alignment: Alignment.topLeft,
                     child: Text('Read more:',style: TextStyle(color: Color(0xfffe882e),fontSize: 20,fontWeight: FontWeight.bold),)),
-                const SizedBox(height: 6),
+                const SizedBox(height: 1),
                 const Align(
                  alignment: Alignment.topLeft,
                 child: Text('Reviews:',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),)),
-                const SizedBox(height: 6),
+                const SizedBox(height: 3),
              Row(
                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                children: [
@@ -193,30 +187,30 @@ main_Container(){
                    ],
                    totalCount: 14,
                    itemCount: 4,
-                   itemRadius: 40,
+                   itemRadius: 55,
                  ),
                 ),
                 Row(
                   children: [
                     Wrap(
                       children: const [
-                        Icon(Icons.star,color: Color(0xfffe882e),size: 20,),
-                        Icon(Icons.star,color: Color(0xfffe882e),size: 20,),
-                        Icon(Icons.star,color: Color(0xfffe882e),size: 20,),
-                        Icon(Icons.star,color: Colors.black,size: 22,),
-                        Icon(Icons.arrow_circle_down_sharp,color: Color(0xfffe882e),size: 25,),
+                        Icon(Icons.star,color: Color(0xfffe882e),size: 22,),
+                        Icon(Icons.star,color: Color(0xfffe882e),size: 22,),
+                        Icon(Icons.star,color: Color(0xfffe882e),size: 22,),
+                        Icon(Icons.star,color: Color(0xfffe882e),size: 22,),
+                        Icon(Icons.menu_open_outlined,color: Color(0xfffe882e),size: 22,),
                       ],
                     ),
                    ],
                  )
                 ],
               ),
-              const SizedBox(height: 25),
+              const SizedBox(height: 15),
               Container(
                 width: double.infinity,
-                height: 50,
+                height: 65,
                 decoration: BoxDecoration(
-                  color: Color(0xfffe882e),
+                  color: const Color(0xfffe882e),
                   borderRadius: BorderRadius.circular(10)
                 ),
                 child: const Center(
@@ -229,8 +223,6 @@ main_Container(){
       ),
   );
 }
-
-
 getProductShoes(String imagePath){
 return Container(
   height: 50,
@@ -249,8 +241,8 @@ return Container(
 getTextNumbers(String textNum){
  return Container(
     alignment: Alignment.center,
-    height: 55,
-    width: 55,
+    height: 60,
+    width: 60,
     decoration: BoxDecoration(
         color: const Color(0xffffffff),
         border: Border.all(
@@ -259,7 +251,7 @@ getTextNumbers(String textNum){
         ),
         borderRadius: BorderRadius.circular(50)
       ),
-    child: Text(textNum,style: text,),
+     child: Text(textNum,style: text,),
    );
 }
 

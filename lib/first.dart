@@ -33,7 +33,7 @@ class _TabScreenState extends State<TabScreen> {
 
             alignment: AlignmentDirectional.bottomCenter,
           ),
-          WovenGridTile(1/1.3),
+          const WovenGridTile(1/1.3),
         ],
       ),
       childrenDelegate: SliverChildBuilderDelegate(
@@ -45,11 +45,11 @@ class _TabScreenState extends State<TabScreen> {
                    decoration: BoxDecoration(
                       border: Border.all(
                         width: 1.0,
-                        color: Color(0xfffe882e),
+                        color: const Color(0xfffe882e),
                       ),
                     // color: Colors.blue[200],
-                    color: Color(0xffc0c4ce),
-                    // color: Color(0xfffe882e),
+                    // color: const Color(0xffc0c4ce),
+                    color: Color(0xfffe882e),
                     // color: Color(0xfff6f6f6),
                     borderRadius: BorderRadius.circular(20)
                   ),
@@ -74,15 +74,13 @@ class _TabScreenState extends State<TabScreen> {
                             MaterialPageRoute(builder: (context) => const NextScreen()),
                           );
                         },
-                        child: Container(
-                          child: Image.asset(widget.productsList[index].imageUrl!,height: 120),
-                        ),
+                        child: Image.asset(widget.productsList[index].imageUrl!,height: 120),
                       ),
                     ],
                   ),
 
-                 Text(widget.productsList[index].productTitle!,style: TextStyle(fontSize: 12,fontWeight: FontWeight.w600),),
-                SizedBox(height: 10),
+                 Text(widget.productsList[index].productTitle!,style:  const TextStyle(fontSize: 12,fontWeight: FontWeight.w600),),
+                const SizedBox(height: 10),
                  Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -97,16 +95,16 @@ class _TabScreenState extends State<TabScreen> {
                       CircleAvatar(
                         radius: 12,
                         backgroundColor: Colors.deepOrange,
-                       ),
+                        ),
+                       ],
+                      )
                      ],
-                    )
-                   ],
-                   ),
+                    ),
                   ],
                 )
-            ),
-      ),
-    );
+             ),
+          ),
+     );
   }
 }
 
