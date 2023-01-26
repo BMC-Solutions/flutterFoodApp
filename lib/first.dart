@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:e_commerce_app/model/products.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -15,7 +17,9 @@ class TabScreen extends StatefulWidget {
 
 class _TabScreenState extends State<TabScreen> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
+    var height = MediaQuery.of(context).size.height*0.2;
+    var width  = MediaQuery.of(context).size.width;
     return GridView.custom(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       physics: const NeverScrollableScrollPhysics(
@@ -23,28 +27,34 @@ class _TabScreenState extends State<TabScreen> {
       shrinkWrap: true,
       gridDelegate: SliverWovenGridDelegate.count(
         crossAxisCount: 2,
-        mainAxisSpacing: 8,
+        mainAxisSpacing: 13,
         crossAxisSpacing: 8,
         pattern: [
           const WovenGridTile(
-          1.6/2.4,
+          1/1.3,
             // crossAxisRatio: 0.9,
 
             alignment: AlignmentDirectional.bottomCenter,
           ),
-          WovenGridTile(2/3),
+          WovenGridTile(1/1.3),
         ],
       ),
       childrenDelegate: SliverChildBuilderDelegate(
            childCount: widget.productsList.length,
             (context, index) =>
                 Container(
-                  decoration: BoxDecoration(
+                  height: height,
+                   width: width,
+                   decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 1.0,
+                        color: Color(0xfffe882e),
+                      ),
                     // color: Colors.blue[200],
-                    // color: Color(0xffc0c4ce),
-                    color: Color(0xfffe882e),
+                    color: Color(0xffc0c4ce),
+                    // color: Color(0xfffe882e),
                     // color: Color(0xfff6f6f6),
-                   borderRadius: BorderRadius.circular(20)
+                    borderRadius: BorderRadius.circular(20)
                   ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -68,18 +78,18 @@ class _TabScreenState extends State<TabScreen> {
                           );
                         },
                         child: Container(
-                          child: Image.asset(widget.productsList[index].imageUrl!,height: 100),
+                          child: Image.asset(widget.productsList[index].imageUrl!,height: 120),
                         ),
                       ),
                     ],
                   ),
 
-                 Text(widget.productsList[index].productTitle!,style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600),),
+                 Text(widget.productsList[index].productTitle!,style: TextStyle(fontSize: 12,fontWeight: FontWeight.w600),),
                 SizedBox(height: 10),
                  Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                  Text(widget.productsList[index].productSubtitle!,style:const TextStyle(fontSize: 24,fontWeight: FontWeight.bold,),),
+                  Text(widget.productsList[index].productSubtitle!,style:const TextStyle(fontSize: 16,fontWeight: FontWeight.bold,),),
                   Wrap(
                     children: const [
                       CircleAvatar(
@@ -90,11 +100,11 @@ class _TabScreenState extends State<TabScreen> {
                       CircleAvatar(
                         radius: 12,
                         backgroundColor: Colors.deepOrange,
-                      ),
-                    ],
-                  )
-                  ],
-                  ),
+                       ),
+                     ],
+                    )
+                   ],
+                   ),
                   ],
                 )
             ),

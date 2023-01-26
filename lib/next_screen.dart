@@ -9,6 +9,12 @@ class NextScreen extends StatefulWidget {
 }
 
 class _NextScreenState extends State<NextScreen>{
+
+  var itemImage = ['assets/images/shoes_8.png','assets/images/shoes_1.png',
+  'assets/images/shoes_8.png','assets/images/shoes_1.png','assets/images/shoes_3.png'
+   'assets/images/shoes_5.png','assets/images/shoes_4.png'
+  ];
+ int image1 = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +43,7 @@ class _NextScreenState extends State<NextScreen>{
                 ),
                 Align(
                   alignment: Alignment.topCenter,
-                   child: Image.asset('assets/images/shoes_8.png',
+                   child: Image.asset(itemImage[image1],
                     fit: BoxFit.contain,height: 150.0,),
                 ),
               ],
@@ -67,18 +73,19 @@ circlear_Row(){
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Container(
-            height: 50,
-            width: 50,
-            decoration: BoxDecoration(
-              border: Border.all(
-                width: 2.0,
-                color: Colors.grey,
+              height: 50,
+              width: 50,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 2.0,
+                  color: Colors.grey,
+                ),
+                borderRadius: BorderRadius.circular(100),
+                color:Color(0xfff9f9f9),
               ),
-              borderRadius: BorderRadius.circular(100),
-              color:Color(0xfff9f9f9),
+              child: Image.asset('assets/images/shoes_8.png'),
             ),
-            child: Image.asset('assets/images/shoes_8.png'),
-          ),
+
           SizedBox(width: 7),
           Container(
             height: 50,
@@ -335,6 +342,7 @@ main_Container(){
       ),
   );
 }
+
 
 
 

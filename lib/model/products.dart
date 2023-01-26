@@ -15,7 +15,7 @@ class Product {
 
 });
 
-  List<Product> getProductList() {
+  List<Product> getProductList(){
     return [
       Product.insert(
           imageUrl: 'assets/images/shoes_3.png',
@@ -36,3 +36,5 @@ class Product {
     ];
   }
 }
+
+

@@ -8,12 +8,9 @@ class StackOver extends StatefulWidget {
   _StackOverState createState() => _StackOverState();
 }
 
-class _StackOverState extends State<StackOver>
-     {
-
-  int position=0;
-  List screens=[BottomMain(),BottomHome(),BottomHome(),BottomHome()];
-
+class _StackOverState extends State<StackOver> {
+  int position = -0;
+  List screens = [BottomMain(), BottomHome(), BottomHome(), BottomHome()];
 
   @override
   Widget build(BuildContext context) {
@@ -21,72 +18,47 @@ class _StackOverState extends State<StackOver>
       child: Scaffold(
         // backgroundColor: Colors.teal,
         body: screens[position],
-
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: FloatingActionButton.small(
+            padding: const EdgeInsets.all(4.0),
+        child: FloatingActionButton.small(
             onPressed: () {
-              setState(() {
-                position=0;
-              });
-            },
-            child: Icon(Icons.home),
-            backgroundColor: Colors.deepOrange,
-          ),
-        ),
+      setState(() {
+      position=0;
+      });
+      },
+        child: Icon(Icons.home),
+        backgroundColor: Colors.deepOrange,
+      ),
+    ),
         bottomNavigationBar: BottomAppBar(
           shape: CircularNotchedRectangle(),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              IconButton(
-                icon: Icon(Icons.home, color: Colors.deepOrange),
-                color: Colors.black,
-                onPressed: () {
-
-                  setState(() {
-                    position=1;
-                  });
-                },
-              ),
-              IconButton(
-                icon: Icon(Icons.person),
-                color: Colors.black,
-                onPressed: () {
-                  setState(() {
-                    position=2;
-                  });
-                },
-              ),
+              getIconWidget(const Icon(Icons.shopping_cart_checkout_outlined),2),
+              getIconWidget(const Icon(Icons.person),2),
               SizedBox(
                 width: 40,
               ),
-              IconButton(
-                icon: Icon(Icons.add_shopping_cart),
-                color: Colors.black,
-                onPressed: () {
-                  setState(() {
-                    position=3;
-                  });
-                },
-              ),
-              IconButton(
-                icon: Icon(Icons.settings),
-                color: Colors.black,
-                onPressed: () {
-
-                  setState(() {
-                    position=4;
-                  });
-                },
-              ),
+              getIconWidget(const Icon(Icons.settings),2),
+              getIconWidget(const Icon(Icons.more_vert),3)
             ],
           ),
         ),
       ),
     );
   }
+
+  getIconWidget(Icon icon, int index) {
+    return IconButton(
+      icon: icon,
+      color: Colors.black,
+      onPressed: () {
+        setState(() {
+          position = index;
+        });
+      },
+    );
+  }
 }
-
-

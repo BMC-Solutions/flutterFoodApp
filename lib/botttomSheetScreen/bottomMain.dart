@@ -10,9 +10,10 @@ class BottomMain extends StatefulWidget {
   State<BottomMain> createState() => _BottomMainState();
 }
 
-class _BottomMainState extends State<BottomMain> with SingleTickerProviderStateMixin {
+class _BottomMainState extends State<BottomMain>with SingleTickerProviderStateMixin {
 
   late TabController _tabController;
+
   @override
   void initState() {
     _tabController = TabController(length: 5, vsync: this);
@@ -30,7 +31,7 @@ class _BottomMainState extends State<BottomMain> with SingleTickerProviderStateM
     print(Product().getProductList().length);
     return NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) {
-          return  [
+          return [
             SliverToBoxAdapter(
               child: Column(
                 children: [
