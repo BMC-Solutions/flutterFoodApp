@@ -21,16 +21,16 @@ class _StackOverState extends State<StackOver> {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: Padding(
             padding: const EdgeInsets.all(4.0),
-        child: FloatingActionButton.small(
+          child: FloatingActionButton.small(
             onPressed: () {
-      setState(() {
-      position=0;
-      });
-      },
-        child: Icon(Icons.home),
+           setState(() {
+          position=0;
+          });
+        },
         backgroundColor: Colors.deepOrange,
-      ),
-    ),
+         child: Icon(Icons.home),
+       ),
+     ),
         bottomNavigationBar: BottomAppBar(
           shape: CircularNotchedRectangle(),
           child: Row(

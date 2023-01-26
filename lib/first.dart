@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:e_commerce_app/model/products.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -10,7 +8,6 @@ class TabScreen extends StatefulWidget {
   TabScreen({Key? key,required List<Product> productList,}) : super(key: key){
    productsList = productList;
   }
-
   @override
   State<TabScreen> createState() => _TabScreenState();
 }

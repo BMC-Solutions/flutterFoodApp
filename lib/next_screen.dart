@@ -79,70 +79,21 @@ circlear_Row(){
                 border: Border.all(
                   width: 2.0,
                   color: Colors.grey,
-                ),
+                 ),
                 borderRadius: BorderRadius.circular(100),
                 color:Color(0xfff9f9f9),
               ),
               child: Image.asset('assets/images/shoes_8.png'),
             ),
-
           SizedBox(width: 7),
-          Container(
-            height: 50,
-            width: 50,
-            decoration: BoxDecoration(
-              border: Border.all(
-                width: 3.0,
-                color: Colors.white,
-              ),
-              borderRadius: BorderRadius.circular(100),
-              color:Color(0xfff9f9f9),
-            ),
-            child: Image.asset('assets/images/shoes_1.png'),
-          ),
+          getProductIcon('assets/images/shoes_2.png'),
           SizedBox(width: 7),
-          Container(
-            height: 50,
-            width: 50,
-            decoration: BoxDecoration(
-              border: Border.all(
-                width: 3.0,
-                color: Colors.white,
-              ),
-              borderRadius: BorderRadius.circular(100),
-              color:Color(0xfff9f9f9),
-            ),
-            child: Image.asset('assets/images/shoes_3.png'),
-          ),
+          getProductIcon('assets/images/shoes_1.png'),
           SizedBox(width: 7),
-          Container(
-            height: 50,
-            width: 50,
-            decoration: BoxDecoration(
-              border: Border.all(
-                width: 3.0,
-                color: Colors.white,
-              ),
-              borderRadius: BorderRadius.circular(100),
-              color:Color(0xfff9f9f9),
-            ),
-            child: Image.asset('assets/images/shoes_5.png'),
-          ),
+          getProductIcon('assets/images/shoes_4.png'),
+          // getProductIcon('assets/images/shoes_4.png'),
           SizedBox(width: 7),
-          Container(
-            height: 50,
-            width: 50,
-            decoration: BoxDecoration(
-              border: Border.all(
-                width: 3.0,
-                color: Colors.white
-                ,
-              ),
-              borderRadius: BorderRadius.circular(100),
-              color:Color(0xfff9f9f9),
-            ),
-            child: Image.asset('assets/images/shoes_4.png'),
-          ),
+          getProductIcon('assets/images/shoes_5.png'),
         ],
       ),
     ),
@@ -340,6 +291,23 @@ main_Container(){
             )
         ),
       ),
+  );
+}
+
+
+getProductIcon(String imagePath){
+return Container(
+  height: 50,
+  width: 50,
+  decoration: BoxDecoration(
+     border: Border.all(
+       width: 2.0,
+       color: Colors.grey,
+     ),
+     borderRadius: BorderRadius.circular(100),
+     color:Color(0xfff9f9f9),
+   ),
+   child: Image.asset(imagePath),
   );
 }
 
