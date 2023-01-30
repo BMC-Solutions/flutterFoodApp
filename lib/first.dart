@@ -75,22 +75,20 @@ class _TabScreenState extends State<TabScreen> {
                         Icons.favorite_border,
                         color: Colors.deepOrangeAccent,
                       )),
-                )),
-            Stack(
-              children: [
+                 ),
+               ),
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const NextScreen()),
+                       builder: (context) => const NextScreen()),
                     );
                   },
                   child: Image.asset(widget.productsList[index].imageUrl!,
                       height: 120),
                 ),
-              ],
-            ),
+
             Text(
               widget.productsList[index].productTitle!,
               style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
