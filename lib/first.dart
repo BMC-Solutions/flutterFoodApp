@@ -65,15 +65,22 @@ class _TabScreenState extends State<TabScreen> {
                 child: GestureDetector(
                  onTap: () {
                    setState((){
-                     bordersColors[index] = !
-                     bordersColors[index];
+                     // bordersColors[index] = !
+                     // bordersColors[index];
                    });
                   },
                   child: CircleAvatar(
-                      backgroundColor: bordersColors[index] ? Colors.yellow : Colors.white,                      radius: 20.0,
-                      child: const Icon(
-                        Icons.favorite_border,
-                        color: Colors.deepOrangeAccent,
+                      backgroundColor: Colors.white,
+                      radius: 20.0,
+                      child: GestureDetector(
+                          onTap: (){
+                           setState(() {
+                             bordersColors[index] = !
+                             bordersColors[index];
+                           });
+                          },
+                        child: Icon(widget.productsList[index].icon!,
+                          color:  bordersColors[index] ? Colors.red : Colors.pink, ),
                       )),
                  ),
                ),

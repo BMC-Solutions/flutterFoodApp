@@ -10,7 +10,6 @@ class BottomMain extends StatefulWidget {
 }
 
 class _BottomMainState extends State<BottomMain>with SingleTickerProviderStateMixin {
-
   late TabController _tabController;
 
   @override
@@ -27,7 +26,7 @@ class _BottomMainState extends State<BottomMain>with SingleTickerProviderStateMi
 
   @override
   Widget build(BuildContext context) {
-    print(Product().getProductList().length);
+    // print(Product(IconData:icon).getProductList().length);
     return NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
@@ -219,13 +218,14 @@ class _BottomMainState extends State<BottomMain>with SingleTickerProviderStateMi
         body:TabBarView(
           controller: _tabController,
           children: [
-            TabScreen(productList: Product().getProductList(),),
-            TabScreen(productList: Product().getProductList(),),
-            TabScreen(productList: Product().getProductList(),),
-            TabScreen(productList: Product().getProductList(),),
-            TabScreen(productList: Product().getProductList(),),
+            TabScreen(productList: Product(Icons.favorite).getProductList(),),
+            TabScreen(productList: Product(Icons.favorite).getProductList(),),
+            TabScreen(productList: Product(Icons.favorite).getProductList(),),
+            TabScreen(productList: Product(Icons.favorite).getProductList(),),
+            TabScreen(productList: Product(Icons.favorite).getProductList(),),
           ],
         )
     );
   }
 }
+
