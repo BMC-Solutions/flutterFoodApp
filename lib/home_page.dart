@@ -22,7 +22,7 @@ class _StackOverState extends State<StackOver> {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: Padding(
             padding: const EdgeInsets.all(2.0),
-          child: Container(
+          child: SizedBox(
             height: 70,
             width: 70,
             child: FloatingActionButton.small(
@@ -41,7 +41,7 @@ class _StackOverState extends State<StackOver> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              getIconWidget(const Icon(Icons.shopping_cart_checkout_outlined),0),
+              getIconWidget(const Icon(Icons.shopping_cart_checkout_outlined),2),
               getIconWidget(const Icon(Icons.person),1),
               const SizedBox(
                 width: 40,
