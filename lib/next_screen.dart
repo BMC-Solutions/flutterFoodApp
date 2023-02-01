@@ -12,7 +12,8 @@ class NextScreen extends StatefulWidget {
 class _NextScreenState extends State<NextScreen>{
 
 
- String image="assets/images/shoes_8.png";
+  String image="assets/images/shoes_8.png";
+
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +66,6 @@ class _NextScreenState extends State<NextScreen>{
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             InkWell(
-
               child: Container(
                 height: 50,
                 width: 50,
@@ -80,7 +80,6 @@ class _NextScreenState extends State<NextScreen>{
                 child: Image.asset('assets/images/shoes_8.png'),
               ),
             ),
-
             const SizedBox(width: 7),
             getProductShoes('assets/images/shoes_2.png'),
             const SizedBox(width: 7),
@@ -261,7 +260,6 @@ class _NextScreenState extends State<NextScreen>{
       child: Text(textNumber,style: text,),
     );
   }
-
 
 }
 

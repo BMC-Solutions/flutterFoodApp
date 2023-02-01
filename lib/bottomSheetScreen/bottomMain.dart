@@ -218,11 +218,11 @@ class _BottomMainState extends State<BottomMain>with SingleTickerProviderStateMi
         body:TabBarView(
           controller: _tabController,
           children: [
-            TabScreen(productList: Product(Icons.favorite).getProductList(),),
-            TabScreen(productList: Product(Icons.favorite).getProductList(),),
-            TabScreen(productList: Product(Icons.favorite).getProductList(),),
-            TabScreen(productList: Product(Icons.favorite).getProductList(),),
-            TabScreen(productList: Product(Icons.favorite).getProductList(),),
+            TabScreen(productList: Product().getProductList(), bordersColors: [],),
+            TabScreen(productList: Product().getProductList(), bordersColors: [],),
+            TabScreen(productList: Product().getProductList(), bordersColors: [],),
+            TabScreen(productList: Product().getProductList(), bordersColors: [],),
+            TabScreen(productList: Product().getProductList(), bordersColors: [],),
           ],
         )
     );

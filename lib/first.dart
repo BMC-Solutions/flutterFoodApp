@@ -4,16 +4,20 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'next_screen.dart';
 
 class TabScreen extends StatefulWidget {
-  List<Product> productsList = [];TabScreen({Key? key, required List<Product> productList,
+  List<Product> productsList = [];
+  List<bool> bordersColors = [];
+  TabScreen({Key? key,
+  required List<Product> productList,
+  required List<bool> bordersColors,
   }) : super(key: key) {
     productsList = productList;
+    bordersColors = bordersColors;
   }
   @override
   State<TabScreen> createState() => _TabScreenState();
 }
-
-class _TabScreenState extends State<TabScreen> {
-  List<bool> bordersColors = [];
+   class _TabScreenState extends State<TabScreen> {
+  // List<bool> bordersColors = [];
   @override
   Widget build(BuildContext context) {
     return GridView.custom(
@@ -36,7 +40,8 @@ class _TabScreenState extends State<TabScreen> {
       ),
        childrenDelegate: SliverChildBuilderDelegate(
         childCount: widget.productsList.length,
-        (context, index) => cardContainer(context, index, widget.productsList[index],),
+        (context, index) => cardContainer(context, index,
+          widget.productsList[index],),
        ),
     );
   }
@@ -44,7 +49,6 @@ class _TabScreenState extends State<TabScreen> {
   Container cardContainer(
       BuildContext context,
       int index,Product){
-      bordersColors.add(false);
      return Container(
         decoration: BoxDecoration(
             border: Border.all(
@@ -75,15 +79,17 @@ class _TabScreenState extends State<TabScreen> {
                       child: GestureDetector(
                           onTap: (){
                            setState(() {
-                             bordersColors[index] = !
-                             bordersColors[index];
+                             // bordersColors[index] = !
+                             // bordersColors[index];
                            });
                           },
-                        child: Icon(widget.productsList[index].icon!,
-                          color:  bordersColors[index] ? Colors.red : Colors.pink, ),
+                        child: const Icon(Icons.favorite,color: Colors.red,),
+
+                          // color:  bordersColors[index] ? Colors.red : Colors.pink,
+                        ),
                       )),
                  ),
-               ),
+
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -92,7 +98,7 @@ class _TabScreenState extends State<TabScreen> {
                        builder: (context) => const NextScreen()),
                     );
                   },
-                  child: Image.asset(widget.productsList[index].imageUrl!,
+                  child: Image.asset(widget.productsList[index].productImageUrl!,
                       height: 120),
                 ),
 
