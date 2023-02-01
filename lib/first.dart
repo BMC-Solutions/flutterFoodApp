@@ -1,26 +1,23 @@
-import 'package:e_commerce_app/card.dart';
+import 'package:e_commerce_app/model/products.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-class TabScreen extends StatefulWidget {
-  const TabScreen({Key? key}) : super(key: key);
+import 'next_screen.dart';
 
+class TabScreen extends StatefulWidget {
+  List<Product> productsList = [];
+  List<bool> bordersColors = [];
+  TabScreen({Key? key,
+  required List<Product> productList,
+  required List<bool> bordersColors,
+  }) : super(key: key) {
+    productsList = productList;
+    bordersColors = bordersColors;
+  }
   @override
   State<TabScreen> createState() => _TabScreenState();
 }
-
-class _TabScreenState extends State<TabScreen> {
-  List <card> item = [];
-
-  @override
-  void initState() {
-    card p1 = card('assets/images/shoes_1.png', 'Nike Blazer Mid 77', '\$79,0');
-    card p2 = card('assets/images/shoes_1.png', 'Nike Blazer Mid 77', '\$79,0');
-    card p3 = card('assets/images/shoes_8.png', 'Nike Blazer Mid 77', '\$79,0');
-    card p4 = card('assets/images/shoes_2.png', 'Nike Blazer Mid 77', '\$79,0');
-    super.initState();
-    item = [p1, p2, p3, p4];
-  }
-
+   class _TabScreenState extends State<TabScreen> {
+  // List<bool> bordersColors = [];
   @override
   Widget build(BuildContext context) {
     return GridView.custom(
@@ -28,38 +25,115 @@ class _TabScreenState extends State<TabScreen> {
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       gridDelegate: SliverWovenGridDelegate.count(
-        tileBottomSpace: 2,
         crossAxisCount: 2,
-        mainAxisSpacing: 8,
+        mainAxisSpacing: 13,
         crossAxisSpacing: 8,
         pattern: [
           const WovenGridTile(
-            4.0 / 4.5,
-            crossAxisRatio: 0.9,
+            1 / 1.3,
+            // crossAxisRatio: 0.9,
+
             alignment: AlignmentDirectional.bottomCenter,
           ),
-          WovenGridTile(1),
+          const WovenGridTile(1 / 1.3),
         ],
       ),
-      childrenDelegate: SliverChildBuilderDelegate(
-        childCount: item.length,
-            (context, index) =>
-            Container(
-                color: Color(0xffffdec1),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                  const CircleAvatar(
-                    child: Icon(Icons.favorite_border),
+       childrenDelegate: SliverChildBuilderDelegate(
+        childCount: widget.productsList.length,
+        (context, index) => cardContainer(context, index,
+          widget.productsList[index],),
+       ),
+    );
+  }
+
+  Container cardContainer(
+      BuildContext context,
+      int index,Product){
+     return Container(
+        decoration: BoxDecoration(
+            border: Border.all(
+              width: 1.0,
+              color: const Color(0xfffe882e),
+            ),
+            // color: Colors.blue[200],
+            // color: const Color(0xffc0c4ce),
+            color: const Color(0xfffe882e),
+            // color: Color(0xfff6f6f6),
+            borderRadius: BorderRadius.circular(20)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+                padding: const EdgeInsets.only(top: 20, right: 100),
+                child: GestureDetector(
+                 onTap: () {
+                   setState((){
+                     // bordersColors[index] = !
+                     // bordersColors[index];
+                   });
+                  },
+                  child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 20.0,
+                      child: GestureDetector(
+                          onTap: (){
+                           setState(() {
+                             // bordersColors[index] = !
+                             // bordersColors[index];
+                           });
+                          },
+                        child: const Icon(Icons.favorite,color: Colors.red,),
+
+                          // color:  bordersColors[index] ? Colors.red : Colors.pink,
+                        ),
+                      )),
+                 ),
+
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                       builder: (context) => const NextScreen()),
+                    );
+                  },
+                  child: Image.asset(widget.productsList[index].productImageUrl!,
+                      height: 120),
+                ),
+
+            Text(
+              widget.productsList[index].productTitle!,
+              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  widget.productsList[index].productSubtitle!,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
                   ),
-                    Container(
-                      child: Image.asset(item[index].imageUrl, height: 100),
+                ),
+                Wrap(
+                  children: const [
+                    CircleAvatar(
+                      radius: 12,
+                      backgroundColor: Colors.white,
+                    ),
+                    SizedBox(width: 3),
+                    CircleAvatar(
+                      radius: 12,
+                      backgroundColor: Colors.deepOrange,
                     ),
                   ],
                 )
+              ],
             ),
-      ),
-    );
+          ],
+        )
+     );
   }
 }

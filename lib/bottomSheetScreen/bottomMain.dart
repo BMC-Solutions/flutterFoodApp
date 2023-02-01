@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../first.dart';
+import '../model/products.dart';
 
 class BottomMain extends StatefulWidget {
   const BottomMain({Key? key}) : super(key: key);
@@ -8,7 +9,7 @@ class BottomMain extends StatefulWidget {
   State<BottomMain> createState() => _BottomMainState();
 }
 
-class _BottomMainState extends State<BottomMain> with SingleTickerProviderStateMixin{
+class _BottomMainState extends State<BottomMain>with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -25,9 +26,10 @@ class _BottomMainState extends State<BottomMain> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
+    // print(Product(IconData:icon).getProductList().length);
     return NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) {
-          return  [
+          return [
             SliverToBoxAdapter(
               child: Column(
                 children: [
@@ -216,13 +218,14 @@ class _BottomMainState extends State<BottomMain> with SingleTickerProviderStateM
         body:TabBarView(
           controller: _tabController,
           children: [
-            TabScreen(),
-            TabScreen(),
-            TabScreen(),
-            TabScreen(),
-            TabScreen(),
+            TabScreen(productList: Product().getProductList(), bordersColors: [],),
+            TabScreen(productList: Product().getProductList(), bordersColors: [],),
+            TabScreen(productList: Product().getProductList(), bordersColors: [],),
+            TabScreen(productList: Product().getProductList(), bordersColors: [],),
+            TabScreen(productList: Product().getProductList(), bordersColors: [],),
           ],
         )
     );
   }
 }
+
